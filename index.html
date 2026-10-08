@@ -1,0 +1,1269 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Amel ❤️</title>
+
+<style>
+
+/* =====================================================
+   DASAR
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#05051b;
+    color:white;
+}
+
+
+/* =====================================================
+   SLIDE
+===================================================== */
+
+.slide{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:
+        clamp(60px,8vh,90px)
+        clamp(20px,5vw,70px)
+        100px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateX(30px);
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.night{
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #292761 0%,
+            #15153e 35%,
+            #080823 70%,
+            #030310 100%
+        );
+}
+
+
+/* =====================================================
+   BINTANG
+===================================================== */
+
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 7px white;
+
+    animation:
+        twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* =====================================================
+   BULAN
+===================================================== */
+
+.moon{
+    position:fixed;
+
+    width:
+        clamp(90px,12vw,170px);
+
+    height:
+        clamp(90px,12vw,170px);
+
+    border-radius:50%;
+
+    background:#fffbd8;
+
+    top:
+        clamp(25px,6vh,70px);
+
+    right:
+        clamp(25px,7vw,100px);
+
+    box-shadow:
+        0 0 25px #fffbd8,
+        0 0 60px rgba(255,255,220,.35);
+
+    z-index:2;
+}
+
+.moon::before{
+    content:"";
+
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:#e8e4c5;
+
+    top:25%;
+    left:30%;
+
+    opacity:.6;
+}
+
+.moon::after{
+    content:"";
+
+    position:absolute;
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:#e8e4c5;
+
+    bottom:25%;
+    right:25%;
+
+    opacity:.5;
+}
+
+
+/* =====================================================
+   KONTEN
+===================================================== */
+
+.content{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:850px;
+
+    max-height:100%;
+
+    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+/* =====================================================
+   FOTO UTAMA
+===================================================== */
+
+.photo{
+    width:
+        clamp(140px,22vh,230px);
+
+    height:
+        clamp(180px,30vh,300px);
+
+    padding:6px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.45),
+        0 0 25px rgba(180,150,255,.2);
+
+    margin-bottom:
+        clamp(15px,3vh,30px);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:14px;
+}
+
+
+/* =====================================================
+   TEKS
+===================================================== */
+
+.label{
+    font-size:
+        clamp(11px,1.2vw,15px);
+
+    letter-spacing:
+        clamp(2px,0.5vw,5px);
+
+    text-transform:uppercase;
+
+    color:#c9c5ff;
+
+    margin-bottom:12px;
+}
+
+h1{
+    font-size:
+        clamp(35px,6vw,75px);
+
+    line-height:1.05;
+
+    text-shadow:
+        0 8px 25px rgba(0,0,0,.4);
+}
+
+.glow{
+    color:#f0caff;
+
+    text-shadow:
+        0 0 10px #dfadff,
+        0 0 30px #a970ff;
+}
+
+.subtitle{
+    margin-top:15px;
+
+    max-width:650px;
+
+    font-size:
+        clamp(14px,1.8vw,19px);
+
+    line-height:1.7;
+
+    color:#dedcff;
+}
+
+
+/* =====================================================
+   UMUR
+===================================================== */
+
+.age{
+    font-size:
+        clamp(80px,15vw,150px);
+
+    font-weight:900;
+
+    line-height:.85;
+
+    color:#e5c4ff;
+
+    text-shadow:
+        0 0 20px #c28bff,
+        0 0 60px rgba(190,130,255,.4);
+}
+
+.age-text{
+    font-size:
+        clamp(15px,2vw,22px);
+
+    margin-top:15px;
+
+    color:#ddd8ff;
+}
+
+
+/* =====================================================
+   SURAT
+===================================================== */
+
+.letter{
+    width:100%;
+
+    max-width:720px;
+
+    max-height:
+        min(65vh,550px);
+
+    overflow:auto;
+
+    text-align:left;
+
+    padding:
+        clamp(20px,4vw,40px);
+
+    border-radius:25px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+
+    line-height:1.8;
+
+    font-size:
+        clamp(14px,1.6vw,17px);
+}
+
+.letter::-webkit-scrollbar{
+    width:4px;
+}
+
+.letter::-webkit-scrollbar-thumb{
+    background:#b99cff;
+    border-radius:10px;
+}
+
+.letter h2{
+    text-align:center;
+
+    font-size:
+        clamp(25px,4vw,35px);
+
+    color:#f0d5ff;
+
+    margin-bottom:20px;
+}
+
+.letter p{
+    margin-bottom:14px;
+}
+
+.signature{
+    text-align:right;
+
+    margin-top:20px;
+
+    color:#f0cfff;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   GALERI
+===================================================== */
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        clamp(8px,2vw,18px);
+
+    width:100%;
+
+    max-width:650px;
+}
+
+.gallery-photo{
+    aspect-ratio:3/4;
+
+    padding:5px;
+
+    background:white;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.4);
+
+    transform:
+        rotate(var(--rotate));
+}
+
+.gallery-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+/* =====================================================
+   FINAL HEART
+===================================================== */
+
+.heart{
+    font-size:
+        clamp(55px,8vw,90px);
+
+    animation:
+        heartbeat 1.2s infinite;
+
+    filter:
+        drop-shadow(
+            0 0 20px #ff4f91
+        );
+
+    margin-bottom:15px;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
+   NAVIGASI
+===================================================== */
+
+.navigation{
+    position:fixed;
+
+    bottom:
+        clamp(15px,3vh,30px);
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:100;
+
+    display:flex;
+
+    gap:10px;
+
+    width:
+        min(92%,360px);
+}
+
+.nav-btn{
+    flex:1;
+
+    height:
+        clamp(42px,6vh,52px);
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:
+        clamp(13px,1.5vw,16px);
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.nav-btn:hover{
+    transform:translateY(-2px);
+}
+
+.back{
+    background:
+        rgba(255,255,255,.1);
+
+    color:white;
+
+    border:
+        1px solid rgba(255,255,255,.2);
+}
+
+.next{
+    background:#eee1ff;
+
+    color:#29203e;
+}
+
+
+/* =====================================================
+   MUSIK
+===================================================== */
+
+.music{
+    position:fixed;
+
+    top:
+        clamp(15px,3vh,25px);
+
+    left:
+        clamp(15px,3vw,30px);
+
+    width:
+        clamp(42px,6vw,52px);
+
+    height:
+        clamp(42px,6vw,52px);
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.9);
+
+    color:#29203e;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:200;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.3);
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti{
+    position:fixed;
+
+    width:8px;
+    height:8px;
+
+    top:-20px;
+
+    z-index:300;
+
+    animation:
+        fall 4s linear forwards;
+}
+
+@keyframes fall{
+
+    to{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:800px){
+
+    .slide{
+        padding-bottom:90px;
+    }
+
+    .moon{
+        opacity:.7;
+    }
+
+}
+
+
+/* =====================================================
+   HP
+===================================================== */
+
+@media(max-width:500px){
+
+    .slide{
+        padding:
+            55px 15px 85px;
+    }
+
+    .moon{
+        width:75px;
+        height:75px;
+
+        top:15px;
+        right:15px;
+    }
+
+    .photo{
+        width:145px;
+        height:190px;
+    }
+
+    .gallery{
+        max-width:320px;
+    }
+
+    .letter{
+        max-height:58vh;
+    }
+
+    .subtitle{
+        line-height:1.5;
+    }
+
+}
+
+
+/* =====================================================
+   HP KECIL
+===================================================== */
+
+@media(max-width:380px){
+
+    .photo{
+        width:125px;
+        height:165px;
+    }
+
+    .letter{
+        max-height:55vh;
+
+        padding:18px;
+    }
+
+    .gallery{
+        gap:6px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BINTANG
+===================================================== -->
+
+<div class="stars" id="stars"></div>
+
+<div class="moon"></div>
+
+
+<!-- =====================================================
+     SLIDE 1
+===================================================== -->
+
+<section class="slide night active">
+
+    <div class="content">
+
+        <div class="label">
+            A Little Birthday Story
+        </div>
+
+        <div class="photo">
+
+            <img
+                src="amel1"
+                alt="Amel">
+
+        </div>
+
+        <h1>
+            Untuk
+            <span class="glow">
+                Amel Puja
+            </span>
+            ❤️
+        </h1>
+
+        <p class="subtitle">
+
+            Ada seseorang yang sangat spesial
+            yang hari ini sedang bertambah usia.
+
+            <br>
+
+            Dan seseorang itu adalah kamu. 🌙
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 2
+===================================================== -->
+
+<section class="slide night">
+
+    <div class="content">
+
+        <div class="label">
+            09 Oktober 2004
+        </div>
+
+        <div class="photo">
+
+            <img
+                src="amel2"
+                alt="Amel">
+
+        </div>
+
+        <h1>
+            Hari dimana
+            <span class="glow">
+                kamu lahir
+            </span>
+        </h1>
+
+        <p class="subtitle">
+
+            Mungkin dunia tidak tahu
+            bahwa hari itu akan menjadi hari
+            lahirnya seseorang yang begitu berarti.
+
+            <br><br>
+
+            Tapi hari ini aku tahu...
+            dan aku bersyukur kamu ada. ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 3
+===================================================== -->
+
+<section class="slide night">
+
+    <div class="content">
+
+        <div class="label">
+            Happy Birthday
+        </div>
+
+        <div class="age">
+            22
+        </div>
+
+        <div class="age-text">
+            Tahun yang penuh cerita ✨
+        </div>
+
+        <div class="photo"
+             style="margin-top:20px;">
+
+            <img
+                src="amel3"
+                alt="Amel">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 4
+===================================================== -->
+
+<section class="slide night">
+
+    <div class="content">
+
+        <div class="letter">
+
+            <h2>
+                💌 Untuk Amel
+            </h2>
+
+            <p>
+                Hai Amel...
+            </p>
+
+            <p>
+                Selamat ulang tahun yaa. ❤️
+            </p>
+
+            <p>
+                Di hari spesial ini aku ingin
+                mengucapkan terima kasih karena
+                kamu sudah hadir di hidupku.
+            </p>
+
+            <p>
+                Semoga di umur kamu yang sekarang,
+                semakin banyak hal baik yang datang.
+                Semoga semua impian dan harapan kamu
+                perlahan menjadi kenyataan.
+            </p>
+
+            <p>
+                Semoga kamu selalu diberikan kesehatan,
+                kebahagiaan, dan kekuatan untuk melewati
+                setiap hal yang ada di depan.
+            </p>
+
+            <p>
+                Jangan pernah merasa sendirian.
+                Karena selalu ada seseorang yang ingin
+                melihat kamu bahagia dan tersenyum.
+            </p>
+
+            <p>
+                Tetap menjadi Amel yang aku kenal.
+                Tetap menjadi seseorang yang punya
+                senyum indah dan hati yang baik.
+            </p>
+
+            <div class="signature">
+
+                Happy Birthday, Amel ❤️
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 5
+===================================================== -->
+
+<section class="slide night">
+
+    <div class="content">
+
+        <div class="label">
+            Little Memories
+        </div>
+
+        <h1 style="
+            font-size:clamp(30px,5vw,50px);
+            margin-bottom:25px;
+        ">
+
+            Tentang Kamu ❤️
+
+        </h1>
+
+        <div class="gallery">
+
+            <div
+                class="gallery-photo"
+                style="--rotate:-5deg">
+
+                <img
+                    src="amel4"
+                    alt="Amel">
+
+            </div>
+
+            <div
+                class="gallery-photo"
+                style="--rotate:2deg">
+
+                <img
+                    src="amel5"
+                    alt="Amel">
+
+            </div>
+
+            <div
+                class="gallery-photo"
+                style="--rotate:5deg">
+
+                <img
+                    src="amel6"
+                    alt="Amel">
+
+            </div>
+
+        </div>
+
+        <p class="subtitle">
+
+            Beberapa foto mungkin hanya menyimpan
+            sebuah momen.
+
+            <br>
+
+            Tapi setiap momen bersamamu
+            punya tempat tersendiri di hati. 🌙
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 6
+===================================================== -->
+
+```html
+<section class="slide night">
+  <div class="content">
+    <div class="badge">💌 Sedikit Pesan</div>
+
+    <h1>Maaf ya, Amel 🤍</h1>
+
+    <img src="amel7" class="photo" alt="Foto Amel">
+
+    <p class="message">
+      Maaf kalau tahun ini aku cuma bisa kasih kado yang sederhana.
+      Mungkin nggak seberapa dibandingkan dengan apa yang kamu harapkan,
+      tapi aku memberikannya dengan tulus dan sepenuh hati. 🥺
+    </p>
+
+    <p class="message">
+      Kalau nanti ada barang yang sampai dan kamu terima,
+      semoga kamu suka ya. Jangan lihat dari harganya,
+      tapi lihat dari niat kecilku yang ingin bikin kamu tersenyum. 🤍
+    </p>
+
+    <p class="message">
+      Sekali lagi, selamat ulang tahun, Amel Puja.
+      Semoga kamu selalu bahagia dan semua hal baik datang kepadamu. 🌙✨
+    </p>
+
+    <div class="final-text">
+      <span>Dengan penuh sayang,</span>
+      <strong>— Aku 🤍</strong>
+    </div>
+  </div>
+</section>
+```
+
+
+
+<!-- =====================================================
+     HANYA 2 TOMBOL
+===================================================== -->
+
+<div class="navigation">
+
+    <button
+        class="nav-btn back"
+        onclick="prevSlide()">
+
+        ← Kembali
+
+    </button>
+
+    <button
+        class="nav-btn next"
+        onclick="nextSlide()">
+
+        Lanjut →
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<button
+    class="music"
+    id="musicButton"
+    onclick="toggleMusic()">
+
+    🎵
+
+</button>
+
+
+<audio
+    id="music"
+    loop>
+
+
+    <source
+        src="lagu.mp3"
+        type="audio/mpeg">
+
+
+</audio>
+
+
+<script>
+
+/* =====================================================
+   SLIDE
+===================================================== */
+
+const slides =
+    document.querySelectorAll(".slide");
+
+let currentSlide = 0;
+
+
+function showSlide(index){
+
+    if(index < 0)
+        index = 0;
+
+    if(index >= slides.length)
+        index = slides.length - 1;
+
+    slides.forEach(slide => {
+
+        slide.classList.remove("active");
+
+    });
+
+    slides[index].classList.add("active");
+
+    currentSlide = index;
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextSlide(){
+
+    if(currentSlide <
+       slides.length - 1){
+
+        currentSlide++;
+
+        showSlide(currentSlide);
+
+        startMusic();
+
+    }
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+function prevSlide(){
+
+    if(currentSlide > 0){
+
+        currentSlide--;
+
+        showSlide(currentSlide);
+
+    }
+
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+let musicPlaying = false;
+
+
+function startMusic(){
+
+    if(
+        !music.src &&
+        !music.querySelector("source")
+    ){
+
+        return;
+
+    }
+
+    music.play()
+    .then(() => {
+
+        musicPlaying = true;
+
+        musicButton.innerText =
+            "⏸️";
+
+    })
+    .catch(() => {});
+
+}
+
+
+function toggleMusic(){
+
+    if(
+        !music.src &&
+        !music.querySelector("source")
+    ){
+
+        alert(
+            "Tambahkan file lagu.mp3 terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    if(musicPlaying){
+
+        music.pause();
+
+        musicPlaying = false;
+
+        musicButton.innerText =
+            "🎵";
+
+    }else{
+
+        music.play();
+
+        musicPlaying = true;
+
+        musicButton.innerText =
+            "⏸️";
+
+    }
+
+}
+
+
+/* =====================================================
+   BINTANG OTOMATIS
+===================================================== */
+
+const stars =
+    document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className =
+        "star";
+
+    star.style.left =
+        Math.random()*100 + "%";
+
+    star.style.top =
+        Math.random()*100 + "%";
+
+    star.style.animationDelay =
+        Math.random()*3 + "s";
+
+    stars.appendChild(star);
+
+}
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "ArrowRight"){
+
+            nextSlide();
+
+        }
+
+        if(e.key === "ArrowLeft"){
+
+            prevSlide();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
